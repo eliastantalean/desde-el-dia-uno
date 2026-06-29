@@ -34,39 +34,42 @@
    ─────────────────────────────────────────────────────────── */
 
 const LETTER_PARAGRAPHS = [
-  'Hola Fio.',
+  'Si estás leyendo esto es porque al final pasó.',
 
-  'Si estás leyendo esto, es porque algo que durante mucho tiempo solo existió como esperanza se volvió real.',
+  'Recuerdo que dijiste que te gustaban las sorpresas, pues bien esta es una de ellas, una que viajó en el tiempo con un mensaje que pudieras leer hoy.',
 
-  'No sé exactamente en qué momento llegaste a esta página. Lo que sí sé es cuándo escribí estas palabras: mucho antes. Mucho antes de saber si algún día tendrías entre tus manos una rosa de origami con un secreto adentro.',
+  'Hay regalos que se abren el mismo día, pero éste esperó con paciencia el momento adecuado.',
 
-  '---',
-
-  'Hay cosas que guardamos sin saber muy bien por qué. A veces es miedo. A veces es que algunas cosas merecen ser escritas aunque nadie las lea jamás.',
-
-  'Tú eres de esas cosas.',
+  'La rosa lo había guardado todo este tiempo, pero fuiste tú quien le dio sentido.',
 
   '---',
 
-  'Hubo conversaciones que terminaban y me dejaban pensando horas después. Hubo momentos en los que pensé: ¿estoy inventando esto, o hay algo real aquí?',
+  'Desde el principio, nunca sentí que las cosas fueran forzadas. Los diálogos fluían sin esfuerzo, aunque cada uno tuviera sus cosas, sus tiempos y su mundo. Aun así, siempre quedaba espacio para seguir hablando.',
 
-  'Esta rosa lleva un tiempo guardando ese secreto. La construí pensando en ti, sabiendo que tal vez nunca la abrirías. O que sí. Y que si lo hacías, significaría que nuestra historia había empezado de verdad.',
-
-  '---',
-
-  'Quería que supieras que todo lo que sentí fue real. Que no fue un impulso. Que hubo días en que pensé en ti sin razón aparente, y noches en que me pregunté si estaba equivocado al esperar.',
-
-  'Tal vez sí. Tal vez no.',
-
-  'Pero lo que no inventé fue la certeza de que valía la pena intentarlo.',
+  'Recuerdo como de forma inconsciente empezamos a buscar más esos momentos, esas charlas que se alargaban más de la cuenta, y como de una forma muy natural todo empezó a encajar poco a poco.',
 
   '---',
 
-  'Gracias por abrir la rosa.\nGracias por estar aquí.',
+  'Y hoy que ya estamos aquí, quise dejarte esto como algo que el tiempo guardó hasta este momento.',
+
+  'Porque contigo nunca se sintió como una duda, se sintió como algo que siempre estuve esperando.',
+
+  'Y quizás también nosotros fuimos eso… algo que no tenía prisa, algo que tuvo que esperar 12 años para que ambos pudieran crecer y aprender diferentes cosas para llegar hasta este punto.',
+
+  '---',
+
+  'Y si has llegado hasta aquí, ya comprenderás que lo nuestro no fue un conjunto de casualidades, ni obra del destino.',
+
+  'Todo tiene su tiempo y espacio… hoy llegó el nuestro.',
+
+  '---',
+
+  'Gracias por ser parte de este capítulo de mi vida… uno que no se escribe de una sola vez, sino día tras día.',
+
+  'Y gracias por demostrarme desde el día uno que nunca estuve equivocado contigo.',
 
   'Con mucho cariño,',
 
-  /* MODIFICAR: Firma de la carta */
   '— Elias',
 ];
 
@@ -368,7 +371,7 @@ function initGallery() {
     const img = item.querySelector('img');
     if (!img) return;
 
-    const onLoad = () => img.classList.add('is-loaded');
+    const onLoad = () => { img.classList.add('is-loaded'); item.classList.add('img-loaded'); };
     const onErr  = () => item.classList.add('no-img');
 
     if (img.complete && img.naturalWidth > 0) onLoad();

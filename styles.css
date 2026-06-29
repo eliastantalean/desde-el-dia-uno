@@ -549,15 +549,13 @@ section, footer {
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr;
+  align-items: start;
 }
 
 @media (min-width: 580px) {
   .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 210px;
+    grid-template-columns: repeat(2, 1fr);
   }
-  .gallery-item--wide { grid-column: span 2; }
-  .gallery-item--tall { grid-row: span 2; }
 }
 
 .gallery-item {
@@ -566,8 +564,7 @@ section, footer {
   border-radius: 3px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  cursor: zoom-in;
-  min-height: 180px;
+  cursor: pointer;
   opacity: 0;
   transform: scale(0.975);
   transition:
@@ -581,34 +578,21 @@ section, footer {
   transform: scale(1);
 }
 
-/* Ícono de expansión en hover */
+/* Overlay oscuro sutil en hover */
 .gallery-item::after {
-  content: '+';
+  content: '';
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 26px;
-  height: 26px;
-  border: 1px solid rgba(255,255,255,0.65);
-  border-radius: 50%;
-  background: rgba(0,0,0,0.26);
-  color: rgba(255,255,255,0.92);
-  font-family: var(--sans);
-  font-size: 1.05rem;
-  font-weight: 300;
-  line-height: 24px;
-  text-align: center;
+  inset: 0;
+  background: rgba(0,0,0,0.12);
   opacity: 0;
-  transform: scale(0.72);
-  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
-  z-index: 4;
+  transition: opacity 0.22s var(--ease);
+  z-index: 2;
   pointer-events: none;
 }
 
 .gallery-item:hover::after,
 .gallery-item:focus-visible::after {
   opacity: 1;
-  transform: scale(1);
 }
 
 .gallery-item:hover,
@@ -621,12 +605,11 @@ section, footer {
 }
 
 .gallery-item img {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease);
+  height: auto;
+  transition: transform 0.6s var(--ease), opacity 0.5s var(--ease);
+  position: relative;
   z-index: 1;
   opacity: 0;
 }
@@ -635,13 +618,11 @@ section, footer {
 
 .gallery-item:hover img,
 .gallery-item:focus-visible img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 /* Placeholder (se muestra mientras no hay foto) */
 .gallery-ph {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -652,8 +633,12 @@ section, footer {
   border: 1.5px dashed var(--border);
   margin: 10px;
   border-radius: 2px;
+  aspect-ratio: 4 / 3;
   transition: border-color 0.25s var(--ease);
 }
+
+/* Ocultar placeholder cuando la imagen ya cargó (clase añadida por JS) */
+.gallery-item.img-loaded .gallery-ph { display: none; }
 
 .gallery-item:hover .gallery-ph { border-color: var(--gold); }
 
@@ -673,28 +658,21 @@ section, footer {
   font-style: italic;
 }
 
-/* Caption al hacer hover — muestra fecha + texto */
+/* Caption — siempre visible */
 .gallery-cap {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 28px 14px 13px;
-  background: linear-gradient(to top, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.28) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.3) 55%, transparent 100%);
   display: flex;
   flex-direction: column;
   gap: 3px;
-  opacity: 0;
-  transform: translateY(5px);
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
-  z-index: 3;
-  pointer-events: none;
-}
-
-.gallery-item:hover .gallery-cap,
-.gallery-item:focus-visible .gallery-cap {
   opacity: 1;
   transform: translateY(0);
+  z-index: 3;
+  pointer-events: none;
 }
 
 /* MODIFICAR: fecha de la foto */
@@ -704,7 +682,8 @@ section, footer {
   font-weight: 400;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255,255,255,0.82);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 /* MODIFICAR: texto/descripción de la foto */
@@ -712,8 +691,14 @@ section, footer {
   font-family: var(--serif);
   font-size: 0.875rem;
   font-style: italic;
-  color: rgba(255,255,255,0.95);
+  color: rgba(255,255,255,0.97);
   line-height: 1.35;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.55);
+}
+
+/* Sin imagen: ocultar el caption gradient (no hay fondo oscuro) */
+.gallery-item.no-img .gallery-cap {
+  display: none;
 }
 
 /* Lightbox — fecha encima del caption */
