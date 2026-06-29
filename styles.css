@@ -240,12 +240,11 @@ section, footer {
    6. HERO
    ───────────────────────────────────────────────────── */
 .section-hero {
-  min-height: 100svh;
+  padding: clamp(3.5rem, 9vw, 6rem) var(--sp-md) clamp(2rem, 4vw, 3rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0;
   overflow: hidden;
 }
 
@@ -472,7 +471,10 @@ section, footer {
 /* ─────────────────────────────────────────────────────
    8. CARTA (TYPEWRITER)
    ───────────────────────────────────────────────────── */
-.section-letter { background: var(--bg); }
+.section-letter {
+  background: var(--bg);
+  padding-top: clamp(2rem, 5vw, 3.5rem); /* Reduce la brecha con el hero */
+}
 
 .letter-wrap { position: relative; }
 
@@ -564,7 +566,7 @@ section, footer {
   border-radius: 3px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  cursor: pointer;
+  cursor: zoom-in;
   min-height: 180px;
   opacity: 0;
   transform: scale(0.975);
@@ -575,6 +577,36 @@ section, footer {
 }
 
 .gallery-item.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Ícono de expansión en hover */
+.gallery-item::after {
+  content: '+';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(255,255,255,0.65);
+  border-radius: 50%;
+  background: rgba(0,0,0,0.26);
+  color: rgba(255,255,255,0.92);
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 24px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.72);
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.gallery-item:hover::after,
+.gallery-item:focus-visible::after {
   opacity: 1;
   transform: scale(1);
 }
@@ -617,37 +649,43 @@ section, footer {
   gap: 8px;
   pointer-events: none;
   z-index: 0;
+  border: 1.5px dashed var(--border);
+  margin: 10px;
+  border-radius: 2px;
+  transition: border-color 0.25s var(--ease);
 }
+
+.gallery-item:hover .gallery-ph { border-color: var(--gold); }
 
 .gallery-ph-num {
   font-family: var(--serif);
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--text-3);
-  opacity: 0.4;
+  opacity: 0.35;
+  line-height: 1;
 }
 
 .gallery-ph-label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
   color: var(--text-3);
-  opacity: 0.55;
+  opacity: 0.5;
   font-style: italic;
 }
 
-/* Caption al hacer hover */
+/* Caption al hacer hover — muestra fecha + texto */
 .gallery-cap {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 10px 12px 12px;
-  font-family: var(--serif);
-  font-size: 0.875rem;
-  font-style: italic;
-  color: #fff;
-  background: linear-gradient(to top, rgba(0,0,0,0.52), transparent);
+  padding: 28px 14px 13px;
+  background: linear-gradient(to top, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.28) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   opacity: 0;
-  transform: translateY(4px);
+  transform: translateY(5px);
   transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
   z-index: 3;
   pointer-events: none;
@@ -657,6 +695,49 @@ section, footer {
 .gallery-item:focus-visible .gallery-cap {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* MODIFICAR: fecha de la foto */
+.gcap-date {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+}
+
+/* MODIFICAR: texto/descripción de la foto */
+.gcap-text {
+  font-family: var(--serif);
+  font-size: 0.875rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.35;
+}
+
+/* Lightbox — fecha encima del caption */
+.lightbox-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.lb-date {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.lb-text {
+  font-family: var(--serif);
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.92rem;
 }
 
 /* Lightbox */
@@ -694,14 +775,17 @@ section, footer {
   max-height: 82vh;
   object-fit: contain;
   border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
 }
 
 .lightbox-cap {
-  font-family: var(--serif);
-  font-style: italic;
-  color: rgba(255,255,255,0.65);
-  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   text-align: center;
+  min-height: 2.4em;
 }
 
 .lightbox-close {

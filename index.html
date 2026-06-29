@@ -21,7 +21,7 @@
 <body>
 
   <!-- Enlace de accesibilidad — salta al contenido principal -->
-  <a class="skip-link" href="#timeline">Saltar al contenido</a>
+  <a class="skip-link" href="#letter">Saltar al contenido</a>
 
   <!-- Canvas para los pétalos flotantes (no eliminar) -->
   <canvas id="petals-canvas" aria-hidden="true"></canvas>
@@ -72,112 +72,22 @@
 
         <!-- MODIFICAR: Subtítulo -->
         <p class="hero-subtitle">
-          Este mensaje fue escrito mucho antes de saber<br>
+          Este mensaje fue escrito incluso antes de saber<br>
           si algún día llegarías a leerlo.
         </p>
-
-        <!-- Botón CTA -->
-        <button class="hero-cta" id="discover-btn" aria-label="Descubrir el secreto">
-          <span class="cta-text">Descubrir el secreto</span>
-        </button>
 
       </div>
     </div>
 
-    <!-- Indicador de scroll -->
-    <div class="scroll-hint" aria-hidden="true">
-      <div class="scroll-line"></div>
-    </div>
-
   </section>
 
-
   <!-- ══════════════════════════════════════════
-       SECCIÓN 2 — Línea de tiempo
-       ══════════════════════════════════════════ -->
-  <section id="timeline" class="section-timeline reveal-section">
-    <div class="container">
-
-      <div class="section-label" aria-hidden="true">La historia</div>
-
-      <!--
-        MODIFICAR: Títulos y descripciones de cada momento.
-        Puedes añadir o quitar elementos <li>.
-      -->
-      <ol class="timeline" aria-label="Línea de tiempo de nuestra historia">
-
-        <li class="timeline-item">
-          <div class="timeline-marker" aria-hidden="true">
-            <span class="timeline-roman">I</span>
-          </div>
-          <div class="timeline-content">
-            <h2 class="timeline-title">El primer día</h2>
-            <p class="timeline-desc">El momento en que algo en mí se detuvo un segundo más de lo habitual.</p>
-          </div>
-        </li>
-
-        <li class="timeline-item">
-          <div class="timeline-marker" aria-hidden="true">
-            <span class="timeline-roman">II</span>
-          </div>
-          <div class="timeline-content">
-            <h2 class="timeline-title">Las primeras conversaciones</h2>
-            <p class="timeline-desc">Palabras que terminaban pero seguían resonando horas después.</p>
-          </div>
-        </li>
-
-        <li class="timeline-item">
-          <div class="timeline-marker" aria-hidden="true">
-            <span class="timeline-roman">III</span>
-          </div>
-          <div class="timeline-content">
-            <h2 class="timeline-title">La primera salida</h2>
-            <p class="timeline-desc">Esas horas que pasaron demasiado rápido y demasiado despacio a la vez.</p>
-          </div>
-        </li>
-
-        <li class="timeline-item">
-          <div class="timeline-marker" aria-hidden="true">
-            <span class="timeline-roman">IV</span>
-          </div>
-          <div class="timeline-content">
-            <h2 class="timeline-title">El café pendiente</h2>
-            <p class="timeline-desc">Ese plan que seguía esperando hacerse realidad.</p>
-          </div>
-        </li>
-
-        <li class="timeline-item">
-          <div class="timeline-marker" aria-hidden="true">
-            <span class="timeline-roman">V</span>
-          </div>
-          <div class="timeline-content">
-            <h2 class="timeline-title">El día que escondí este mensaje</h2>
-            <p class="timeline-desc">El día que construí este lugar para ti, sin saber si algún día llegarías.</p>
-          </div>
-        </li>
-
-        <li class="timeline-item">
-          <div class="timeline-marker timeline-marker--last" aria-hidden="true">
-            <span class="timeline-roman">VI</span>
-          </div>
-          <div class="timeline-content">
-            <h2 class="timeline-title">Hoy</h2>
-            <p class="timeline-desc">El día en que abriste la rosa y encontraste el secreto que guardaba.</p>
-          </div>
-        </li>
-
-      </ol>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════════
-       SECCIÓN 3 — Carta con efecto máquina de escribir
+       SECCIÓN 2 — Carta con efecto máquina de escribir
        ══════════════════════════════════════════ -->
   <section id="letter" class="section-letter reveal-section">
-    <div class="container">
+    <div class="container" style="margin-top: 0;">
 
-      <div class="section-label" aria-hidden="true">Una carta</div>
+      <div class="section-label" aria-hidden="true">Para ti</div>
 
       <article class="letter-wrap" aria-label="Carta personal">
         <div class="letter-paper">
@@ -195,13 +105,13 @@
 
 
   <!-- ══════════════════════════════════════════
-       SECCIÓN 4 — Galería de fotos
+       SECCIÓN 3 — Galería de fotos
        ══════════════════════════════════════════ -->
   <section id="gallery" class="section-gallery reveal-section">
     <div class="container container--wide">
 
       <div class="section-label" aria-hidden="true">Momentos</div>
-      <h2 class="section-title">Algunas imágenes para recordar.</h2>
+      <h2 class="section-title">¿Recuerdas estos momentos?</h2>
 
       <!--
         MODIFICAR FOTOS: Cambia el valor de data-src y src en cada figure.
@@ -214,68 +124,92 @@
 
         <figure class="gallery-item" role="listitem" tabindex="0"
           data-src="assets/images/foto1.jpg"
+          data-date="29 de junio de 2026"
           data-caption="Un momento para recordar.">
           <div class="gallery-ph" aria-hidden="true">
             <span class="gallery-ph-num">01</span>
             <span class="gallery-ph-label">foto1.jpg</span>
           </div>
           <img src="assets/images/foto1.jpg" alt="Fotografía 1" loading="lazy" />
-          <figcaption class="gallery-cap">Un momento para recordar.</figcaption>
+          <figcaption class="gallery-cap">
+            <span class="gcap-date">29 de junio de 2026</span>
+            <span class="gcap-text">Un momento para recordar.</span>
+          </figcaption>
         </figure>
 
         <figure class="gallery-item gallery-item--wide" role="listitem" tabindex="0"
           data-src="assets/images/foto2.jpg"
+          data-date="· · ·"
           data-caption="Instantes que se quedan.">
           <div class="gallery-ph" aria-hidden="true">
             <span class="gallery-ph-num">02</span>
             <span class="gallery-ph-label">foto2.jpg</span>
           </div>
           <img src="assets/images/foto2.jpg" alt="Fotografía 2" loading="lazy" />
-          <figcaption class="gallery-cap">Instantes que se quedan.</figcaption>
+          <figcaption class="gallery-cap">
+            <span class="gcap-date">· · ·</span>
+            <span class="gcap-text">Instantes que se quedan.</span>
+          </figcaption>
         </figure>
 
         <figure class="gallery-item gallery-item--tall" role="listitem" tabindex="0"
           data-src="assets/images/foto3.jpg"
+          data-date="· · ·"
           data-caption="Cada imagen, un recuerdo.">
           <div class="gallery-ph" aria-hidden="true">
             <span class="gallery-ph-num">03</span>
             <span class="gallery-ph-label">foto3.jpg</span>
           </div>
           <img src="assets/images/foto3.jpg" alt="Fotografía 3" loading="lazy" />
-          <figcaption class="gallery-cap">Cada imagen, un recuerdo.</figcaption>
+          <figcaption class="gallery-cap">
+            <span class="gcap-date">· · ·</span>
+            <span class="gcap-text">Cada imagen, un recuerdo.</span>
+          </figcaption>
         </figure>
 
         <figure class="gallery-item" role="listitem" tabindex="0"
           data-src="assets/images/foto4.jpg"
+          data-date="· · ·"
           data-caption="Guardado para siempre.">
           <div class="gallery-ph" aria-hidden="true">
             <span class="gallery-ph-num">04</span>
             <span class="gallery-ph-label">foto4.jpg</span>
           </div>
           <img src="assets/images/foto4.jpg" alt="Fotografía 4" loading="lazy" />
-          <figcaption class="gallery-cap">Guardado para siempre.</figcaption>
+          <figcaption class="gallery-cap">
+            <span class="gcap-date">· · ·</span>
+            <span class="gcap-text">Guardado para siempre.</span>
+          </figcaption>
         </figure>
 
         <figure class="gallery-item" role="listitem" tabindex="0"
           data-src="assets/images/foto5.jpg"
+          data-date="· · ·"
           data-caption="Nuestro tiempo.">
           <div class="gallery-ph" aria-hidden="true">
             <span class="gallery-ph-num">05</span>
             <span class="gallery-ph-label">foto5.jpg</span>
           </div>
           <img src="assets/images/foto5.jpg" alt="Fotografía 5" loading="lazy" />
-          <figcaption class="gallery-cap">Nuestro tiempo.</figcaption>
+          <figcaption class="gallery-cap">
+            <span class="gcap-date">· · ·</span>
+            <span class="gcap-text">Nuestro tiempo.</span>
+          </figcaption>
         </figure>
 
         <figure class="gallery-item" role="listitem" tabindex="0"
           data-src="assets/images/foto6.jpg"
+          data-date="· · ·"
           data-caption="Lo que siempre recordaré.">
           <div class="gallery-ph" aria-hidden="true">
             <span class="gallery-ph-num">06</span>
             <span class="gallery-ph-label">foto6.jpg</span>
           </div>
           <img src="assets/images/foto6.jpg" alt="Fotografía 6" loading="lazy" />
-          <figcaption class="gallery-cap">Lo que siempre recordaré.</figcaption>
+          <figcaption class="gallery-cap">
+            <span class="gcap-date">· · ·</span>
+            <span class="gcap-text">Lo que siempre recordaré.</span>
+          </figcaption>
         </figure>
 
       </div>
@@ -293,123 +227,7 @@
 
 
   <!-- ══════════════════════════════════════════
-       SECCIÓN 5 — Pequeñas coincidencias
-       ══════════════════════════════════════════ -->
-  <section id="memories" class="section-memories reveal-section">
-    <div class="container">
-
-      <div class="section-label" aria-hidden="true">Pequeñas cosas</div>
-      <h2 class="section-title">Nuestras pequeñas coincidencias.</h2>
-
-      <!--
-        MODIFICAR: Edita el texto de cada tarjeta.
-        Cambia la categoría (span.mem-cat) y el texto (p.mem-text).
-        Agrega o quita <li> según necesites.
-      -->
-      <ul class="memories-grid" role="list" aria-label="Recuerdos compartidos">
-
-        <li class="mem-card" role="listitem">
-          <span class="mem-cat">conversación</span>
-          <p class="mem-text">Aquella conversación que empezó por nada y terminó en todo.</p>
-        </li>
-
-        <li class="mem-card" role="listitem">
-          <span class="mem-cat">día</span>
-          <p class="mem-text">Aquel miércoles que ninguno de los dos planeó pero que ambos recordamos.</p>
-        </li>
-
-        <li class="mem-card" role="listitem">
-          <span class="mem-cat">película</span>
-          <p class="mem-text">Aquella película que vimos sin vernos y sobre la que después hablamos durante horas.</p>
-        </li>
-
-        <li class="mem-card" role="listitem">
-          <span class="mem-cat">risa</span>
-          <p class="mem-text">Aquella risa que no pude olvidar aunque quise ser sensato.</p>
-        </li>
-
-        <li class="mem-card" role="listitem">
-          <span class="mem-cat">detalle</span>
-          <p class="mem-text">Aquel detalle tuyo que solo yo noté, y que guardé para mí.</p>
-        </li>
-
-        <li class="mem-card" role="listitem">
-          <span class="mem-cat">silencio</span>
-          <p class="mem-text">Aquel silencio que fue más honesto que cualquier cosa que pudiéramos haber dicho.</p>
-        </li>
-
-      </ul>
-
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════════
-       SECCIÓN 6 — Frase grande
-       ══════════════════════════════════════════ -->
-  <section id="quote" class="section-quote reveal-section">
-    <div class="container">
-
-      <!--
-        MODIFICAR: Texto de la frase principal.
-      -->
-      <blockquote class="big-quote">
-        <p class="bq-line bq-line--1">No sabía si llegarías<br>a leer estas palabras.</p>
-        <p class="bq-line bq-line--2">Solo sabía que quería escribirlas.</p>
-      </blockquote>
-
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════════
-       SECCIÓN 7 — Reproductor de música
-       ══════════════════════════════════════════ -->
-  <section id="music" class="section-music reveal-section">
-    <div class="container">
-
-      <div class="section-label" aria-hidden="true">Una canción</div>
-
-      <div class="music-player" role="region" aria-label="Reproductor de música">
-
-        <div class="music-meta">
-          <!-- MODIFICAR: Nombre de la canción y artista -->
-          <p class="music-title">Título de la canción</p>
-          <p class="music-artist">Artista</p>
-        </div>
-
-        <div class="music-controls">
-          <button class="music-btn" id="music-btn" aria-label="Reproducir música">
-            <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
-            <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true" hidden><rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/></svg>
-          </button>
-
-          <div class="music-track" id="music-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0" aria-label="Progreso de la canción">
-            <div class="music-fill" id="music-fill"></div>
-            <div class="music-thumb" id="music-thumb"></div>
-          </div>
-
-          <span class="music-time" id="music-time" aria-live="polite">0:00</span>
-        </div>
-
-        <!--
-          MODIFICAR: Ruta del archivo de música.
-          Coloca tu archivo .mp3 en assets/music/
-          Ejemplo: src="assets/music/nuestra-cancion.mp3"
-        -->
-        <audio id="music-audio" preload="none">
-          <source src="assets/music/cancion.mp3" type="audio/mpeg" />
-          <source src="assets/music/cancion.ogg" type="audio/ogg" />
-        </audio>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════════
-       SECCIÓN 8 — Cierre y firma
+       SECCIÓN 6 — Cierre y firma
        ══════════════════════════════════════════ -->
   <footer id="footer" class="section-footer reveal-section" role="contentinfo">
     <div class="container">

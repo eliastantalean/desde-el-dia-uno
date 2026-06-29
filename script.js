@@ -34,7 +34,7 @@
    ─────────────────────────────────────────────────────────── */
 
 const LETTER_PARAGRAPHS = [
-  'Hola.',
+  'Hola Fio.',
 
   'Si estás leyendo esto, es porque algo que durante mucho tiempo solo existió como esperanza se volvió real.',
 
@@ -327,9 +327,6 @@ function initLetter() {
       p.appendChild(cursor);
       body.appendChild(p);
 
-      /* Scroll suave hacia el cursor mientras escribe */
-      cursor.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
       let cIdx = 0;
 
       function typeChar() {
@@ -383,22 +380,52 @@ function initGallery() {
     entries.forEach(e => {
       if (e.isIntersecting) {
         const idx = Array.from(items).indexOf(e.target);
-        setTimeout(() => e.target.classList.add('is-visible'), idx * 75);
+        setTimeout(() => e.target.classList.add('is-visible'), idx * 70);
         gallObs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0, rootMargin: '0px' });
 
   items.forEach(el => gallObs.observe(el));
+
+  /* Fallback: asegura que todos los ítems sean visibles tras 800ms
+     por si el IntersectionObserver no dispara (ej. scroll rápido) */
+  setTimeout(() => {
+    items.forEach((el, i) => {
+      if (!el.classList.contains('is-visible')) {
+        setTimeout(() => el.classList.add('is-visible'), i * 60);
+      }
+    });
+  }, 800);
 
   /* Lightbox */
   function open(item) {
     const src = item.dataset.src || item.querySelector('img')?.src || '';
     const cap = item.dataset.caption || '';
+    const alt = item.querySelector('img')?.alt || '';
 
-    lbImg.src = src;
-    lbImg.alt = item.querySelector('img')?.alt || '';
-    lbCap.textContent = cap;
+    const date = item.dataset.date || '';
+
+    lbImg.style.opacity = '';
+    lbImg.src   = src;
+    lbImg.alt   = alt;
+
+    lbCap.innerHTML = '';
+    if (date) {
+      const d = document.createElement('span');
+      d.className = 'lb-date';
+      d.textContent = date;
+      lbCap.appendChild(d);
+    }
+    if (cap) {
+      const t = document.createElement('span');
+      t.className = 'lb-text';
+      t.textContent = cap;
+      lbCap.appendChild(t);
+    }
+
+    lbImg.onerror = () => { lbImg.style.opacity = '0'; };
+    lbImg.onload  = () => { lbImg.style.opacity = '1'; };
 
     lightbox.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
