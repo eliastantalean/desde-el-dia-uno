@@ -34,7 +34,7 @@
    ─────────────────────────────────────────────────────────── */
 
 const LETTER_PARAGRAPHS = [
-  'Si estás leyendo esto es porque al final pasó y estamos exactamente donde lo había planeado.',
+  'Si estás leyendo esto es porque al final estamos exactamente donde lo había planeado.',
 
   'Recuerdo que dijiste que te gustaban las sorpresas, pues bien esta es una de ellas, una que viajó en el tiempo con un mensaje que pudieras leer hoy.',
 
