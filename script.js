@@ -34,13 +34,11 @@
    ─────────────────────────────────────────────────────────── */
 
 const LETTER_PARAGRAPHS = [
-  'Si estás leyendo esto es porque al final pasó.',
+  'Si estás leyendo esto es porque al final pasó y estamos exactamente donde lo había planeado.',
 
   'Recuerdo que dijiste que te gustaban las sorpresas, pues bien esta es una de ellas, una que viajó en el tiempo con un mensaje que pudieras leer hoy.',
 
-  'Hay regalos que se abren el mismo día, pero éste esperó con paciencia el momento adecuado.',
-
-  'La rosa lo había guardado todo este tiempo, pero fuiste tú quien le dio sentido.',
+  'La rosa que guardabas siempre tuvo este secreto, pero fuiste tú quien le dio sentido.',
 
   '---',
 
@@ -50,15 +48,15 @@ const LETTER_PARAGRAPHS = [
 
   '---',
 
-  'Y hoy que ya estamos aquí, quise dejarte esto como algo que el tiempo guardó hasta este momento.',
+  'Y hoy que estamos aquí frente al mar, quise dejarte esto como algo que el tiempo guardó hasta este momento.',
 
   'Porque contigo nunca se sintió como una duda, se sintió como algo que siempre estuve esperando.',
 
-  'Y quizás también nosotros fuimos eso… algo que no tenía prisa, algo que tuvo que esperar 12 años para que ambos pudieran crecer y aprender diferentes cosas para llegar hasta este punto.',
+  'Y quizás también nosotros fuimos eso… algo que no tenía prisa, algo que tuvo que esperar 12 años para que ambos pudieramos crecer y aprender diferentes cosas para llegar hasta este punto.',
 
   '---',
 
-  'Y si has llegado hasta aquí, ya comprenderás que lo nuestro no fue un conjunto de casualidades, ni obra del destino.',
+  'Y si hemos llegado hasta aquí, comprenderás que lo nuestro no fue simplemente un conjunto de casualidades, ni obra del destino.',
 
   'Todo tiene su tiempo y espacio… hoy llegó el nuestro.',
 
@@ -66,7 +64,9 @@ const LETTER_PARAGRAPHS = [
 
   'Gracias por ser parte de este capítulo de mi vida… uno que no se escribe de una sola vez, sino día tras día.',
 
-  'Y gracias por demostrarme desde el día uno que nunca estuve equivocado contigo.',
+  'Por demostrarme desde el día uno que nunca estuve equivocado contigo.',
+
+  'Y por permitirme compartir mi felicidad contigo, recuerda que somos 2 naranjas no la mitad de una.',
 
   'Con mucho cariño,',
 
